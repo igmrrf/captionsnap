@@ -196,12 +196,12 @@ export default function Home() {
       ctx.fill();
 
       // Add a small accent bar at the top
-      ctx.fillStyle = theme.accentColor;
+      ctx.fillStyle = theme.accentColor!;
       ctx.fillRect(contentX + contentWidth / 4, contentY, contentWidth / 2, 4);
     } else if (theme.name === "VS Code Dark") {
       // Add VS Code-like border
-      ctx.strokeStyle = theme.borderColor;
-      ctx.lineWidth = theme.borderWidth;
+      ctx.strokeStyle = theme.borderColor!;
+      ctx.lineWidth = theme.borderWidth!;
       ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
       // Add VS Code-like title bar
@@ -225,8 +225,8 @@ export default function Home() {
       ctx.fill();
     } else if (theme.name === "LinkedIn") {
       // Add LinkedIn header
-      ctx.fillStyle = theme.headerColor;
-      ctx.fillRect(0, 0, canvas.width, theme.headerHeight);
+      ctx.fillStyle = theme.headerColor!;
+      ctx.fillRect(0, 0, canvas.width, theme.headerHeight!);
 
       // Add LinkedIn logo
       ctx.fillStyle = "#ffffff";
@@ -235,7 +235,7 @@ export default function Home() {
       ctx.fillText("in", 20, 28);
     } else if (theme.name === "Twitter/X") {
       // Add Twitter/X logo
-      ctx.fillStyle = theme.accentColor;
+      ctx.fillStyle = theme.accentColor!;
       ctx.font = "bold 40px Arial";
       ctx.textAlign = "left";
       ctx.fillText("𝕏", 20, 40);
@@ -287,7 +287,7 @@ export default function Home() {
     if (theme.name === "VS Code Dark") {
       yOffset = 30; // Account for title bar
     } else if (theme.name === "LinkedIn") {
-      yOffset = theme.headerHeight;
+      yOffset = theme.headerHeight!;
     }
 
     let y = ((canvas.height + yOffset) - (lines.length * lineHeight)) / 2;
@@ -341,8 +341,8 @@ export default function Home() {
                     key={theme.name}
                     onClick={() => applyTheme(theme.name)}
                     className={`p-3 border border-black/10 dark:border-white/10 rounded-lg text-sm transition-all ${selectedTheme === theme.name
-                        ? 'ring-2 ring-[#1a73e8] dark:ring-[#8ab4f8]'
-                        : 'hover:bg-black/5 dark:hover:bg-white/5'
+                      ? 'ring-2 ring-[#1a73e8] dark:ring-[#8ab4f8]'
+                      : 'hover:bg-black/5 dark:hover:bg-white/5'
                       }`}
                     style={{
                       backgroundColor: theme.backgroundColor,
